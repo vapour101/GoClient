@@ -1,6 +1,6 @@
 AC_PREREQ([2.69])
 AC_INIT([GoClient], [0.0])
-AM_INIT_AUTOMAKE([-Wall -Werror subdir-objects])
+AM_INIT_AUTOMAKE([-Wall -Werror subdir-objects foreign])
 LT_PREREQ([2.2])
 
 AC_CONFIG_SRCDIR([src/main.cxx])
