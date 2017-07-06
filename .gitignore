@@ -18,3 +18,5 @@ configure
 depcomp
 autom4te.cache/
 m4/
+
+build/
