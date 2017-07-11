@@ -10,7 +10,9 @@ libgtest_la_SOURCES = ../googletest/googletest/src/gtest-all.cc
 libgtest_la_CPPFLAGS = $(GTEST_INCLUDES)
 libgtest_la_LDFLAGS = -pthread
 
-unitTests_SOURCES = gtest_main.cxx coords_test.cxx ../src/game-logic/coords.cxx
+unitTests_SOURCES = gtest_main.cxx \
+                    coords_test.cxx ../src/game-logic/coords.cxx \
+                    board_test.cxx ../src/game-logic/board.cxx
 unitTests_LDADD = libgtest.la
 unitTests_LDFLAGS = -pthread
 unitTests_CPPFLAGS = $(GTEST_INCLUDES)

@@ -47,4 +47,8 @@ TEST_F(CoordsTest, LinearRepresentation)
 	EXPECT_THROW(Coords(19,20).toIndexForBoardsize(Square19), std::domain_error);
 	EXPECT_THROW(Coords(0,1).toIndexForBoardsize(Square19), std::domain_error);
 	EXPECT_THROW(Coords(1,0).toIndexForBoardsize(Square19), std::domain_error);
+
+	EXPECT_EQ(Square19.getLinearArraySize(), 361);
+	EXPECT_EQ(Coords(1,1).getLinearArraySize(), 1);
+	EXPECT_EQ(Coords(4,4).getLinearArraySize(), 16);
 }

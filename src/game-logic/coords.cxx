@@ -4,7 +4,6 @@
 
 Coords::Coords(int x, int y):x{x}, y{y}
 {
-
 }
 
 bool Coords::isAdjacentTo(const Coords& other) const
@@ -26,6 +25,11 @@ int Coords::toIndexForBoardsize(const Coords& boardSize) const
 		throw std::domain_error("Coordinates out of range for boardsize.");
 
 	return (x-1) * boardSize.x + (y-1);
+}
+
+int Coords::getLinearArraySize() const
+{
+	return (x * y);
 }
 
 bool operator==(const Coords& lhs, const Coords& rhs)

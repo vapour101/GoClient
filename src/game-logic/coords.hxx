@@ -7,7 +7,9 @@ public:
 	Coords(int x, int y);
 
 	bool isAdjacentTo(const Coords& other) const;
+
 	int toIndexForBoardsize(const Coords& boardSize) const;
+	int getLinearArraySize() const;
 
 	friend bool operator==(const Coords& lhs, const Coords& rhs);
 
