@@ -4,6 +4,7 @@ bin_PROGRAMS = src/main
 src_main_SOURCES = src/main.cxx
 
 doc_DATA = COPYING INSTALL README.md
+EXTRA_DIST = README.md
 
 #TESTS
 TESTS = tests/unitTests
