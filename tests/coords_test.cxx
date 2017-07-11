@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include "gtest/gtest.h"
-#include "../src/coords.hxx"
+#include "../src/game-logic/coords.hxx"
 
 
 class CoordsTest : public ::testing::Test
