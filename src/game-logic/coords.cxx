@@ -2,42 +2,34 @@
 #include <cmath>
 #include <stdexcept>
 
-Coords::Coords(int x, int y):x{x}, y{y}
+Coords::Coords(int row, int column):row{row}, column{column}
 {
 }
 
 bool Coords::isAdjacentTo(const Coords& other) const
 {
-	int absoluteDifferenceX = std::abs(this->x - other.x);
-	int absoluteDifferenceY = std::abs(this->y - other.y);
+	int absoluteDifferenceRow = std::abs(this->row - other.row);
+	int absoluteDifferenceColumn = std::abs(this->column - other.column);
 
-	bool xIsAdjacent = absoluteDifferenceX == 1;
-	bool yIsAdjacent = absoluteDifferenceY == 1;
+	bool rowIsAdjacent = absoluteDifferenceRow == 1;
+	bool columnIsAdjacent = absoluteDifferenceColumn == 1;
 
-	bool exactlyOneIsAdjacent = xIsAdjacent != yIsAdjacent;
+	bool exactlyOneIsAdjacent = rowIsAdjacent != columnIsAdjacent;
 
 	return exactlyOneIsAdjacent;
 }
 
-int Coords::toIndexForBoardsize(const Coords& boardSize) const
+std::size_t Coords::hash() const
 {
-	if (x > boardSize.x || y > boardSize.y || x < 1 || y < 1)
-		throw std::domain_error("Coordinates out of range for boardsize.");
-
-	return (x-1) * boardSize.x + (y-1);
-}
-
-int Coords::getLinearArraySize() const
-{
-	return (x * y);
+	std::size_t const h1 ( std::hash<int>{}(row) );
+	std::size_t const h2 ( std::hash<int>{}(column) );
+	return h1 ^ (h2 << 1); //Combine hashes
 }
 
 bool operator==(const Coords& lhs, const Coords& rhs)
 {
-	return (lhs.x == rhs.x && lhs.y == rhs.y);
+	return (lhs.row == rhs.row && lhs.column == rhs.column);
 }
-
-
 
 bool operator!=(const Coords& lhs, const Coords& rhs)
 {

@@ -1,24 +1,37 @@
 #ifndef COORDS_HXX
 #define COORDS_HXX
 
+#include <functional>
+
 class Coords
 {
 public:
-	Coords(int x, int y);
+	Coords(int row, int column);
 
 	bool isAdjacentTo(const Coords& other) const;
 
-	int toIndexForBoardsize(const Coords& boardSize) const;
-	int getLinearArraySize() const;
+	std::size_t hash() const;
 
 	friend bool operator==(const Coords& lhs, const Coords& rhs);
 
 private:
-	int x;
-	int y;
+	int row;
+	int column;
 };
 
 bool operator==(const Coords& lhs, const Coords& rhs);
 bool operator!=(const Coords& lhs, const Coords& rhs);
+
+//Specialization of std::hash for Coords class
+namespace std
+{
+	template<> struct hash<Coords>
+	{
+		std::size_t operator()(Coords const& coords) const
+		{
+			return coords.hash();
+		}
+	};
+}
 
 #endif // COORDS_HXX
