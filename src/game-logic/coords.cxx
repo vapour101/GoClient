@@ -2,7 +2,11 @@
 #include <cmath>
 #include <stdexcept>
 
-Coords::Coords(int row, int column):row{row}, column{column}
+Coords::Coords(int row, int column): row{row}, column{column}
+{
+}
+
+Coords::Coords(const Coords& other): row{other.row}, column{other.column}
 {
 }
 
@@ -24,6 +28,16 @@ std::size_t Coords::hash() const
 	std::size_t const h1 ( std::hash<int>{}(row) );
 	std::size_t const h2 ( std::hash<int>{}(column) );
 	return h1 ^ (h2 << 1); //Combine hashes
+}
+
+Coords& Coords::operator=(const Coords& other)
+{
+	if (this != &other)
+	{
+		row = other.row;
+		column = other.column;
+	}
+	return *this;
 }
 
 bool operator==(const Coords& lhs, const Coords& rhs)

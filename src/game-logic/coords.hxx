@@ -7,10 +7,13 @@ class Coords
 {
 public:
 	Coords(int row, int column);
+	Coords(const Coords& other);
 
 	bool isAdjacentTo(const Coords& other) const;
 
 	std::size_t hash() const;
+
+	Coords& operator=(const Coords& other);
 
 	friend bool operator==(const Coords& lhs, const Coords& rhs);
 
