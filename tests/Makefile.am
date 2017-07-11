@@ -15,4 +15,4 @@ unitTests_SOURCES = gtest_main.cxx \
                     board_test.cxx ../src/game-logic/board.cxx
 unitTests_LDADD = libgtest.la
 unitTests_LDFLAGS = -pthread
-unitTests_CPPFLAGS = $(GTEST_INCLUDES)
+unitTests_CPPFLAGS = $(GTEST_INCLUDES) -I$(top_srcdir)/src
