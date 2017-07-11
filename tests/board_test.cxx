@@ -23,5 +23,7 @@ TEST_F(BoardTest, AddingMoves)
 
 	testBoard.playBlackMoveAt(c0);
 
-	EXPECT_EQ(testBoard.getBlackVector().size(), 1);
+	ASSERT_EQ(testBoard.getBlackVector().size(), 1);
+
+	EXPECT_EQ(testBoard.getBlackVector().front(), c0);
 }

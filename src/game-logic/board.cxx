@@ -7,12 +7,18 @@ Board::Board(Coords boardSize)
 
 void Board::playBlackMoveAt(const Coords& point)
 {
-
+	gamePosition.insert({point, BLACK});
 }
 
 std::vector<Coords> Board::getBlackVector() const
 {
-	std::vector<Coords> temp{};
+	std::vector<Coords> blackVector{};
 
-	return temp;
+	for (auto i : gamePosition)
+	{
+		if (i.second == BLACK)
+			blackVector.push_back(i.first);
+	}
+
+	return blackVector;
 }
