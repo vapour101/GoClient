@@ -4,6 +4,9 @@
 
 #include <vector>
 
+using seki::Coords;
+using seki::Board;
+
 class BoardTest : public ::testing::Test
 {
 public:

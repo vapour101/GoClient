@@ -3,6 +3,8 @@
 #include "../src/game-logic/coords.hxx"
 #include <utility>
 
+using seki::Coords;
+
 class CoordsTest : public ::testing::Test
 {
 public:

@@ -1,5 +1,7 @@
 #include "board.hxx"
 
+namespace seki {
+
 Board::Board(Coords boardSize)
 {
 
@@ -22,3 +24,5 @@ std::vector<Coords> Board::getBlackVector() const
 
 	return blackVector;
 }
+
+}//namespace seki

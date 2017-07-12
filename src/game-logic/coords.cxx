@@ -2,6 +2,8 @@
 #include <cmath>
 #include <stdexcept>
 
+namespace seki {
+
 Coords::Coords(int row, int column): row{row}, column{column}
 {
 }
@@ -49,3 +51,5 @@ bool operator!=(const Coords& lhs, const Coords& rhs)
 {
 	return !(lhs == rhs);
 }
+
+}//namespace seki

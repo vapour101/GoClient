@@ -7,6 +7,8 @@
 #include "coords.hxx"
 #include "common/constants.hxx"
 
+namespace seki {
+
 class Board
 {
 public:
@@ -18,5 +20,7 @@ public:
 private:
 	std::unordered_map<Coords, Colour> gamePosition;
 };
+
+}
 
 #endif // BOARD_HXX

@@ -3,6 +3,8 @@
 
 #include <functional>
 
+namespace seki{
+
 class Coords
 {
 public:
@@ -25,12 +27,14 @@ private:
 bool operator==(const Coords& lhs, const Coords& rhs);
 bool operator!=(const Coords& lhs, const Coords& rhs);
 
+}
+
 //Specialization of std::hash for Coords class
 namespace std
 {
-	template<> struct hash<Coords>
+	template<> struct hash<seki::Coords>
 	{
-		std::size_t operator()(Coords const& coords) const
+		std::size_t operator()(seki::Coords const& coords) const
 		{
 			return coords.hash();
 		}
